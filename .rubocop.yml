@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.7
   NewCops: enable
 
 Style/StringLiterals:
@@ -13,5 +13,18 @@ Style/StringLiteralsInInterpolation:
 Layout/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*_spec.rb"
 Style/IfUnlessModifier:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+lib = File.expand_path("lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require_relative "lib/dotfiled/version"
 
 Gem::Specification.new do |spec|
@@ -12,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Helpers for your dotfiles"
   spec.homepage      = "https://github.com/mjacobus/dotfiled"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
