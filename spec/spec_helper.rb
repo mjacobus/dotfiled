@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "dotfiled"
-
 require "simplecov"
 require "simplecov-lcov"
 
