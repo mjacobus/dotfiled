@@ -9,4 +9,8 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-task default: %i[spec rubocop]
+task :coverage do
+  ENV["COVERAGE"] = "true"
+end
+
+task default: %i[coverage spec rubocop]

@@ -1,6 +1,11 @@
-name: Ruby
+name: Ruby RSpec
 
-on: [push,pull_request]
+on:
+  push:
+      branches:
+        - main
+        - master
+  pull_request:
 
 jobs:
   build:
@@ -11,8 +16,13 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
-    - name: Run the default task
+    - name: Run the rspec
       run: |
         gem install bundler -v 2.2.10
         bundle install
-        bundle exec rake
+        bundle exec rspec
+    # try to enable when there is something to cover
+    # - name: Coveralls
+    #   uses: coverallsapp/github-action@master
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
