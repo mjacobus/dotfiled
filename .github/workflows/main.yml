@@ -15,4 +15,8 @@ jobs:
       run: |
         gem install bundler -v 2.2.10
         bundle install
-        bundle exec rake
+        bundle exec rspec
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}

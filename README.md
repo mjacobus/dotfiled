@@ -1,8 +1,11 @@
 # Dotfiled
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dotfiled`. To experiment with that code, run `bin/console` for an interactive prompt.
+Helpers for dotfiles
 
-TODO: Delete this and the text above, and describe your gem
+[![Build status](https://github.com/mjacobus/dotfiled/actions/workflows/main.yml/badge.svg)](https://github.com/mjacobus/dotfiled/actions/workflows/main.yml)
+[![Rubocop](https://github.com/mjacobus/dotfiled/actions/workflows/rubocop.yml/badge.svg)](https://github.com/mjacobus/dotfiled/actions/workflows/rubocop.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d8abe3894a889eb62a5c/maintainability)](https://codeclimate.com/github/mjacobus/dotfiled/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/mjacobus/dotfiled/badge.svg)](https://coveralls.io/github/mjacobus/dotfiled)
 
 ## Installation
 
