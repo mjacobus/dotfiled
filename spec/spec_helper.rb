@@ -16,7 +16,7 @@ SimpleCov::Formatter::LcovFormatter.config do |c|
   c.single_report_path = "coverage/lcov.info"
 end
 
-SimpleCov.start
+SimpleCov.start if ENV["CI"] || ENV["COVERAGE"]
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
