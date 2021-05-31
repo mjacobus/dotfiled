@@ -218,6 +218,73 @@ RSpec.describe Dotfiled::AlternativeFile::Finder do
       end
     end
   end
+
+  describe "controller/request files" do
+    context "when finding by the test file" do
+      let(:found) { script.execute(["spec/requests/some_module/some_request_spec.rb"]) }
+
+      before do
+        mock_exist(:all, false)
+        mock_exist("spec")
+        mock_exist("test")
+        mock_exist("spec/requests/some_module/some_request_spec.rb")
+        mock_exist("app/controllers/some_module/some_controller.rb")
+      end
+
+      it "finds the controller file" do
+        expect(found.to_s).to eq("app/controllers/some_module/some_controller.rb")
+      end
+    end
+
+    context "when finding for the request file" do
+      let(:found) { script.execute(["app/controllers/some_module/some_controller.rb"]) }
+
+      before do
+        mock_exist(:all, false)
+        mock_exist("spec")
+        mock_exist("test")
+        mock_exist("test/requests/some_module/some_request_test.rb")
+        mock_exist("app/controllers/some_module/some_controller.rb")
+      end
+
+      it "finds the request test file" do
+        expect(found.to_s).to eq("test/requests/some_module/some_request_test.rb")
+      end
+    end
+
+    context "when finding for the request spec file" do
+      let(:found) { script.execute(["app/controllers/some_module/some_controller.rb"]) }
+
+      before do
+        mock_exist(:all, false)
+        mock_exist("spec")
+        mock_exist("test")
+        mock_exist("spec/requests/some_module/some_request_spec.rb")
+        mock_exist("app/controllers/some_module/some_controller.rb")
+      end
+
+      it "finds the request test file" do
+        expect(found.to_s).to eq("spec/requests/some_module/some_request_spec.rb")
+      end
+    end
+
+    context "when finding for the controller file" do
+      let(:found) { script.execute(["app/controllers/some_module/some_controller.rb"]) }
+
+      before do
+        mock_exist(:all, false)
+        mock_exist("spec")
+        mock_exist("test")
+        mock_exist("spec/controllers/some_module/some_controller_spec.rb")
+        mock_exist("spec/requests/some_module/some_request_spec.rb")
+        mock_exist("app/controllers/some_module/some_controller.rb")
+      end
+
+      it "finds the request test file" do
+        expect(found.to_s).to eq("spec/controllers/some_module/some_controller_spec.rb")
+      end
+    end
+  end
   # rubocop:disable Style/OptionalBooleanParameter
   def mock_exist(file, exist = true)
     if file == :all
